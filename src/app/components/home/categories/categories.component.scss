@@ -1,0 +1,44 @@
+@import 'variables';
+
+.category {
+  display: flex;
+  padding: 2rem;
+  box-shadow: 0 .4rem .6rem -.3rem $primary-shadow-color;
+  text-align: center;
+  align-items: center;
+}
+
+.category:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+article img {
+  width: 25rem;
+}
+
+.category-description {
+  flex-grow: 1;
+}
+
+button {
+  display: block;
+  padding: .7rem;
+  background-color: $primary-bg-color;
+  border: none;
+  color: white;
+  margin: 1rem auto;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+// Media query to target tablets
+@media only screen and (max-width: 768px) {
+}
+
+// Media query to target mobile phone and small screen mobiles
+@media only screen and (max-width: 468px) {
+  article img {
+    width: 50%;
+  }
+}
+

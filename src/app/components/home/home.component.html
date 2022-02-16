@@ -1,0 +1,7 @@
+<div class="home-container">
+  <!-- Carousel -->
+  <app-carousel *ngIf="bannersData && bannersData.length > 0" [bannersData]="bannersData"></app-carousel>
+
+  <!-- Categories Listing -->
+  <app-categories *ngIf="categories && categories.length > 0" [Categories]="categories"></app-categories>
+</div>

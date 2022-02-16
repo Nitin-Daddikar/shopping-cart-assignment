@@ -1,0 +1,10 @@
+<div class="cart-container">
+  <!-- Heading of cart -->
+  <div id="cart-header">
+    <span class="font-16 font-bold">My Cart</span>&nbsp;&nbsp;<small class="font-12">({{ itemsInCart.length + " item" }}{{itemsInCart.length == 1 ? "" : "s"}})</small>
+    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+
+  <!--cart body with cart items -->
+  <app-cart-common [itemsInCart]="itemsInCart" [activeModalObj]="activeModal"></app-cart-common>
+</div>

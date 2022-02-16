@@ -1,0 +1,28 @@
+<section class="products-listing">
+  <article class="product-item" *ngFor="let item of products | sortByCategory: selectedCategoryId">
+    <h2 class="item-name">{{ item.name }}</h2>
+    <div class="product-desc">
+      <img [src]="'assets/' + item.imageURL" [alt]="item.name" />
+      <section>
+        <p class="desc font-14">{{ item.description }}</p>
+        <button class="buynow-mobile-btn font-18" (click)="addtoCart(item)"
+          attr.aria-label="Buy item {{ item.name }} at {{ item.price }} Rupee">
+          {{ "Buy Now @ Rs." + item.price }}
+        </button>
+      </section>
+    </div>
+    <div class="buynow-desktop-btn">
+      <p class="font-14">{{ "MRP RS." + item.price }}</p>
+      <button (click)="addtoCart(item)" attr.aria-label="Buy item {{ item.name }} at {{ item.price }} Rupee"
+        class="font-14">
+        Buy Now
+      </button>
+    </div>
+
+    <button class="buynow-tablet-btn font-14" (click)="addtoCart(item)"
+      attr.aria-label="Buy item {{ item.name }} at {{ item.price }} Rupee">
+      {{ "Buy Now @ Rs." + item.price }}
+    </button>
+
+  </article>
+</section>

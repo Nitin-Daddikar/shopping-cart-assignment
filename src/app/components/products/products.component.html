@@ -1,0 +1,45 @@
+<div class="products-container">
+  <!-- products category side navbar => tablet and higher views -->
+  <aside class="categories-listing">
+    <ul>
+      <ng-container *ngFor="let item of Categories">
+        <li
+          *ngIf="item.enabled"
+          (click)="categorySelection(item)"
+          [ngClass]="{ active: item.id === selectedCategoryId }"
+          class="font-16"
+        >{{ item.name }}
+        </li>
+      </ng-container>
+    </ul>
+  </aside>
+
+  <!-- products category dropdown => mobile view -->
+  <section class="category-dropdown">
+    <select
+      class="dropdown_select"
+      name="dropdown"
+      [(ngModel)]="selectedCategorykey"
+      (change)="selected()"
+    >
+      <option value="" aria-label="select a category" selected disabled hidden>
+        Select a category
+      </option>
+      <ng-container *ngFor="let item of Categories">
+        <option
+          *ngIf="item.enabled"
+          [selected]="selectedCategorykey === item.key"
+          [value]="item.key"
+        >
+          {{ item.name }}
+        </option>
+      </ng-container>
+    </select>
+  </section>
+
+  <!-- products listing / grid view of products -->
+  <app-products-listing class="product-list"
+    [products]="products"
+    [selectedCategoryId]="selectedCategoryId"
+  ></app-products-listing>
+</div>

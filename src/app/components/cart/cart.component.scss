@@ -1,0 +1,38 @@
+@import "variables";
+
+h1 {
+  padding: 1rem;
+  box-shadow: 0 .4rem .6rem .1rem $primary-shadow-color;
+  font-size: 2rem;
+  small {
+    font-weight: normal;
+  }
+}
+
+h1 {
+  margin: 1rem 0rem;
+}
+
+.emptycart {
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+// Media query to target tablets
+@media only screen and (max-width: 768px) {
+  .footer {
+    width: 100%;
+  }
+  .cart-container {
+    width: 100%;
+  }
+}
+
+// Media query to target mobile phone and small screen mobiles
+@media only screen and (max-width: 468px) {
+}

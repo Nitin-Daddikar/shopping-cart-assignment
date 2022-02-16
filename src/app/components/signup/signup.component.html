@@ -1,0 +1,104 @@
+<div class="signup-container">
+  <section class="signup-item">
+    <h1>Signup</h1>
+    <p>We do not share your personal details with anyone.</p>
+  </section>
+
+  <section class="signup-form">
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+      method="post"
+      action="#"
+    >
+      <label for="firstName" class="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="model.firstName"
+        #firstName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }"
+        required
+        aria-describedby='firstName_req'
+      />
+      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+        <div *ngIf="firstName.errors['required']" id="firstName_req">First Name is required</div>
+      </div>
+
+      <label for="lastName" class="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="model.lastName"
+        #lastName="ngModel"
+      />
+
+      <label for="email" class="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="model.email"
+        #email="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+        required
+        email
+        aria-describedby='email_req email_invalid'
+      />
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors['required']" id="email_req">Email is required</div>
+        <div *ngIf="email.errors['email']" id="email_invalid">Invalid Email</div>
+      </div>
+
+      <label for="password" class="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="model.password"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+        required
+        minlength="6"
+        aria-describedby='password_req password_min'
+      />
+      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors['required']" id="password_req">Password is required</div>
+        <div *ngIf="password.errors['minlength']" id="password_min">
+          Password must be at least 6 characters
+        </div>
+      </div>
+
+      <label for="confirmPassword" class="confirmPassword"
+        >Confirm Password</label
+      >
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        [(ngModel)]="model.confirmPassword"
+        #confirmPassword="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }"
+        required
+        aria-describedby='confirm_req confirn_match'
+      />
+      <div
+        *ngIf="f.submitted && confirmPassword.invalid"
+        class="invalid-feedback"
+      >
+        <div *ngIf="confirmPassword.errors['required']" id="confirm_req">
+          Confirm Password is required
+        </div>
+        <div *ngIf="confirmPassword.errors['mustMatch']" id="confirn_match">
+          Confirm password and password must match
+        </div>
+      </div>
+
+      <button type="submit" aria-label="Signup button">Signup</button>
+    </form>
+  </section>
+</div>

@@ -1,0 +1,42 @@
+@import "variables";
+
+.cart-container {
+  min-height: 60rem;
+  position: relative;
+}
+
+#cart-header {
+  padding: 1rem;
+  font-size: 2rem;
+  background: #1d2124;
+  color: white;
+  small {
+    font-weight: normal;
+  }
+}
+
+.btn-close {
+  float: right;
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+
+app-cart-common {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+// Media query to target tablets
+@media only screen and (max-width: 768px) {
+  .footer {
+    width: 100%;
+  }
+  .cart-container {
+    width: 100%;
+  }
+}
+
+// Media query to target mobile phone and small screen mobiles
+@media only screen and (max-width: 468px) {
+}

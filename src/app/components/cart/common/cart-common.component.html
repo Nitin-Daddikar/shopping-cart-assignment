@@ -1,0 +1,68 @@
+
+<section id="items-section" *ngIf="itemsInCart.length > 0">
+  <ul>
+    <li *ngFor="let item of itemsInCart">
+      <a>
+        <img [src]="'assets/' + item.imageURL" [alt]="item.name" />
+        <article>
+          <p id="item-name" class="font-14 font-bold">{{ item.name }}</p>
+          <section class="font-14">
+            <button
+              class="counter-button"
+              (click)="Productservice.removedfromcart(item)"
+              attr.aria-label="Remove 1 quantity out of {{item.quantity}} of {{item.name}}"
+            >
+              -
+            </button>
+            <span id="quantity">{{ item.quantity }}</span>
+            <button
+              class="counter-button"
+              (click)="Productservice.addedtocart(item)"
+              attr.aria-label="Add 1 more {{item.name}}"
+            >
+              +
+            </button>
+            <span>x &nbsp;&nbsp;</span>
+            <span>{{ "Rs." + item.price }}</span>
+          </section>
+        </article>
+        <section class="itemprice font-14">
+          <span>{{ "Rs." + item.price * item.quantity }}</span>
+        </section>
+      </a>
+    </li>
+  </ul>
+  <!-- promotional Banner below cart items -->
+  <aside class="promotion">
+    <img
+      src="assets/static/images/lowest-price.png"
+      alt="Banner displaying, You wont find it cheaper anywhere"
+    />
+    <p class="font-14">You wont find it cheaper anywhere</p>
+  </aside>
+</section>
+
+<!-- Footer implementation of cart -->
+<section class="footer">
+  <h5 *ngIf="itemsInCart.length > 0">
+    Promo code can be applied on payment page
+  </h5>
+  <button
+    class="proceed-btn"
+    routerLink="/home"
+    *ngIf="itemsInCart.length === 0"
+    aria-label="cart is empty now. Click to start shopping"
+  >
+    Start Shopping
+  </button>
+
+  <button
+    class="proceed-btn checkout"
+    (click)="proceedCheckou()"
+    *ngIf="itemsInCart.length > 0"
+    attr.aria-label="Proceed to Checkout. cart total is {{ cartValue }}"
+  >
+    <span>Proceed to Checkout</span>
+    <span>{{ "Rs." + cartValue }} &nbsp;&nbsp;&nbsp;&nbsp;&gt;</span>
+  </button>
+</section>

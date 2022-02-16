@@ -1,0 +1,16 @@
+<div class="cart-container">
+  <!-- Heading of cart -->
+  <h1 *ngIf="itemsInCart.length > 0">
+    <span class="font-20 font-bold">My Cart&nbsp;</span>
+    <small class="font-18">({{ itemsInCart.length + " item" }}{{itemsInCart.length == 1 ? "" : "s"}})</small>
+  </h1>
+
+  <!--cart body with cart items -->
+  <app-cart-common [itemsInCart]="itemsInCart"></app-cart-common>
+
+  <!-- Body of cart without cart items -->
+  <section class="emptycart" *ngIf="itemsInCart.length === 0">
+    <h3>No Items in your cart</h3>
+    <p>Your favourite items are just a click away</p>
+  </section>
+</div>

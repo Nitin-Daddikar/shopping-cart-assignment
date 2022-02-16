@@ -1,0 +1,168 @@
+@import "variables";
+
+.nav-container {
+  display: flex;
+  box-shadow: 0 .4rem .6rem -.3rem $primary-shadow-color;
+  height: 8rem;
+}
+
+.navbar {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.menu-items {
+  flex: 1 0 auto;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: gray;
+  cursor: pointer;
+  li {
+    padding: 0rem 0rem 0 5rem;
+    outline: none;
+  }
+}
+
+.active {
+  color: $primary-bg-color;
+}
+picture {
+  outline: none;
+  cursor: pointer;
+}
+
+picture img {
+  height: 6rem;
+  margin: 1rem 0rem;
+}
+
+button img {
+  height: 2rem;
+}
+
+section span {
+  padding-left: 1rem;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .6rem;
+  font-size: 1.4rem;
+  border-style: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 14rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: gray;
+}
+
+.sign-up span {
+  outline: none;
+  cursor: pointer;
+}
+
+.hamburger,
+#hamburger-links {
+  display: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#hamburger-links {
+  background: whitesmoke;
+  color: $primary-bg-color;
+  font-size: 1.4rem;
+  font-weight: 600;
+  li {
+    text-align: center;
+    padding: .5rem;
+  }
+}
+
+.hamburger a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.toggle {
+  transform: rotate(-90deg);
+  transition: all 0.75s ease;
+}
+
+// Media query to target tablets
+@media only screen and (max-width: 768px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .menu-items {
+    flex: 1 0 auto;
+    li:first-child {
+      padding: 0px 0px 2rem 5rem;
+    }
+    li {
+      padding: 0px 0px 2rem 2rem;
+    }
+  }
+}
+
+// Media query to target mobile phone and small screen mobiles
+@media only screen and (max-width: 468px) {
+  .nav-right {
+    display: flex;
+    flex-direction: row;
+    width: 14rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: gray;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .sign-up {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  picture img {
+    height: 6rem;
+    padding: 1rem;
+    margin: 1rem .5rem;
+  }
+
+  .menu-items {
+    display: none;
+  }
+
+  .nav-container {
+    height: 6rem;
+  }
+}
