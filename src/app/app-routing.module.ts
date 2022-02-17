@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProductsComponent } from './components/products/products.component';
-import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
-  {path:'home', component:HomeComponent},
-  {path:'login', component:LoginComponent},
-  {path:'signup', component:SignupComponent},
-  {path:'products', component:ProductsComponent},
-  {path:'products/:id', component:ProductsComponent},
+  {
+    path: 'home',
+    loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path:'login',
+    loadChildren: () => import('./components/login/login.module').then(m =>  m.LoginModule)
+  },
+  {
+    path:'signup',
+    loadChildren: () => import('./components/signup/signup.module').then(m =>  m.SignupModule)
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule)
+  },
   {path:'cart', component:CartComponent},
-  {path:'**', component:HomeComponent},
-
+  {path:'**', redirectTo: 'home'},
 ];
 
 @NgModule({
